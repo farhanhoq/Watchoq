@@ -20,7 +20,7 @@ const Documentaries = () => {
         return (
         <>
             <div>
-            <h1 className="text-left text-2xl font-bold ml-20">Documentaries</h1>
+            <h1 className="text-left text-4xl font-bold ml-20 ml-20 text-primary">Documentaries</h1>
             </div>
 
             <Swiper

@@ -22,7 +22,7 @@ const Trending = () => {
     return (
         <>
             <div>
-            <h1 className="text-left text-2xl font-bold ml-20 ml-20">Trending Now</h1>
+            <h1 className="text-left text-4xl font-bold ml-20 ml-20 text-primary">Trending Now</h1>
             </div>
 
             <Swiper

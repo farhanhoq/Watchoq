@@ -26,7 +26,7 @@ const Nav = () => {
         }>
             <div className="navbar">
             <div className="navbar-start">
-            <a className="btn btn-ghost normal-case text-xl">WatchOQ</a>
+            <a className="btn btn-ghost normal-case text-5xl">WatchOQ</a>
             </div>
             
             </div>
