@@ -1,40 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { DefaultPlayer as Video } from "react-html5video";
-import "react-html5video/dist/styles.css";
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import requests from '../../utils/API';
-import Loader from '../shared/Loading';
+import ReactPlayer from "react-player/lazy"
 
 const VideoPlayer = () => {
+
+    const [trailer, setTrailer] = useState([])
 
 
     const { data: trending = [], isLoading } = useQuery({
         queryKey: ["trending"],
         queryFn: async () => {
-                const res = await fetch(requests.fetchTrending)
+                const res = await fetch()
             const data = await res.json();
-                return data.results;
+            console.log(data)
+                return data;
         }
     })
 
-    if (isLoading) {
-        return <Loader></Loader>
-    }
+    const data = fetch(
+        `https://api.themoviedb.org/3/${trending?.media_type === 'tv' ? 'tv' : 'movie'
+        }/${trending?.id}?api_key=b6d67655320fa17c181a5061388550aa&language=en-US&append_to_response=videos`)
+        .then((response) => response.json())
+        .then(data => {
+
+            if (data?.videos) {
+                const index = data.videos.results.findIndex(
+                (element) => element.type === 'Trailer'
+                )
+                setTrailer(data.videos?.results[index]?.key)
+            }
+        })
 
 
-    const movie = (trending[Math.floor(Math.random() * trending.length)]);
-    console.log(trending)
 
     return (
-        <div>
-            <div className='w-2/3 mx-auto p-20'>
-            <Video autoPlay loop muted
-                controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
-                poster={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`}
-                >
-                <source src="" type="video/webm" />
-                </Video>
-        </div>
+        <div className='h-400'>
+            <ReactPlayer
+            url={
+                `https://www.youtube.com/watch?v=${trailer}` ||
+                `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+            }
+            width="100%"
+            height="600px"
+            style={{ position: 'relative', top: '0', left: '0' }}
+            playing
+                controls
+            />
         </div>
     );
 };

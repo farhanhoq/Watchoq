@@ -19,8 +19,6 @@ const Trending = () => {
         .then(data => setTrending(data.results))
     }, [])
 
-    console.log(trending)
-
     return (
         <>
             <div>
