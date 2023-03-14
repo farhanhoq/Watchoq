@@ -34,7 +34,7 @@ const VideoPlayer = () => {
 
 
     return (
-        <div className='h-400'>
+        <div className='p-20'>
             <ReactPlayer
             url={
                 `https://www.youtube.com/watch?v=${trailer}` ||
