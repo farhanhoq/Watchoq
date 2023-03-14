@@ -18,3 +18,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WATCHOQ_E7B0F }}'
           channelId: live
           projectId: watchoq-e7b0f
+
+env:
+  FIREBASE_CLI_PERVIEWS: hostingchannels
+  CI: false
