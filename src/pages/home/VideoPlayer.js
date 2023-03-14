@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import ReactPlayer from "react-player/lazy"
+import Loading from '../shared/Loading';
+import requests from '../../utils/API';
 
 const VideoPlayer = () => {
 
@@ -10,10 +12,9 @@ const VideoPlayer = () => {
     const { data: trending = [], isLoading } = useQuery({
         queryKey: ["trending"],
         queryFn: async () => {
-                const res = await fetch()
+            const res = await fetch(requests.fetchTrending)
             const data = await res.json();
-            console.log(data)
-                return data;
+            return data.results[0];
         }
     })
 
@@ -30,6 +31,12 @@ const VideoPlayer = () => {
                 setTrailer(data.videos?.results[index]?.key)
             }
         })
+    
+    console.log(trending)
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
 

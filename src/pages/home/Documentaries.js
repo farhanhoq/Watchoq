@@ -40,7 +40,7 @@ const Documentaries = () => {
             className="mySwiper"
             >
             {documentaries.map((movie) => (
-                <SwiperSlide className="h-96 w-96">
+                <SwiperSlide className="h-96 w-96" key={movie.id}>
                 <img
                     src={`https://image.tmdb.org/t/p/w500${
                     movie.backdrop_path || movie.poster_path
