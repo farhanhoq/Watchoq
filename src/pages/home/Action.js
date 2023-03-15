@@ -20,7 +20,7 @@ const Action = () => {
         return (
             <>
                 <div>
-                <h1 className="text-left text-4xl font-bold ml-20 ml-20 text-primary">
+                <h1 className="text-left text-4xl font-bold ml-24 text-primary">
                     Action Movies
                 </h1>
                 </div>
@@ -42,14 +42,15 @@ const Action = () => {
                 className="mySwiper"
                 >
                 {action.map((movie) => (
-                    <SwiperSlide className="h-96 w-96" key={movie.id}>
+                    <SwiperSlide className="" key={movie.id}>
                     <img
                         src={`https://image.tmdb.org/t/p/w500${
                         movie.backdrop_path || movie.poster_path
                         }`}
                         alt=""
-                        className="h-96 w-96"
-                    />
+                        className=""
+                        />
+                        <h2 className='text-center text-2xl font-bold text-secondary my-4'>{ movie.name || movie.title }</h2>
                     </SwiperSlide>
                 ))}
                 </Swiper>

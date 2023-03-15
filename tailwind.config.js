@@ -1,17 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}"
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   daisyui: {
     themes: [
       {
         nerdthemes: {
-          primary: '#4568dc',
-          secondary: '#b06ab3'
-        }
+          primary: "#db2d2d",
+          secondary: "#9cefe9",
+        },
       },
-    ]
+    ],
   },
   theme: {
     extend: {},

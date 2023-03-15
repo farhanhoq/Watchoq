@@ -14,6 +14,7 @@ const VideoPlayer = () => {
         queryFn: async () => {
             const res = await fetch(requests.fetchTrending)
             const data = await res.json();
+            
             return data.results[0];
         }
     })
@@ -41,7 +42,7 @@ const VideoPlayer = () => {
 
 
     return (
-        <div className='p-20'>
+        <div className='py-20'>
             <ReactPlayer
             url={
                 `https://www.youtube.com/watch?v=${trailer}` ||
@@ -49,7 +50,7 @@ const VideoPlayer = () => {
             }
             width="100%"
             height="600px"
-            style={{ position: 'relative', top: '0', left: '0' }}
+            style={{ position: 'relative', top: '50', left: '0' }}
             playing
                 controls
             />

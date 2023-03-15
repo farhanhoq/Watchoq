@@ -1,0 +1,22 @@
+[
+        {
+            "id": "01",
+            "c_name": "Trending Now"
+        },
+        {
+            "id": "02",
+            "c_name": "Top Rated"
+        },
+        {
+            "id": "03",
+            "c_name": "Action Movies"
+        },
+        {
+            "id": "04",
+            "c_name": "Horror"
+        },
+        {
+            "id": "05",
+            "c_name": "Documentaries"
+        }
+]
